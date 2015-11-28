@@ -79,29 +79,55 @@ angular.module('myApp.view2', ['ngRoute'])
   }
 
       function repeat() {
-        var voices = window.speechSynthesis.getVoices();
-        var utterance = new SpeechSynthesisUtterance('repeat');
-        utterance.voice = voices[2];
-        window.speechSynthesis.speak(utterance);
+        //var voices = window.speechSynthesis.getVoices();
+        //var utterance = new SpeechSynthesisUtterance('repeat');
+        //utterance.voice = voices[2];
+        //window.speechSynthesis.speak(utterance);
+        //
+        //voices = window.speechSynthesis.getVoices();
+        //utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep - 1]);
+        //utterance.voice = voices[2];
+        //window.speechSynthesis.speak(utterance);
 
-        voices = window.speechSynthesis.getVoices();
-        utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep - 1]);
-        utterance.voice = voices[2];
-        window.speechSynthesis.speak(utterance);
+        sayThings(['repeat', steps[$scope.currentStep - 1]]);
       }
 
       function skip() {
-        var voices = window.speechSynthesis.getVoices();
-        var utterance = new SpeechSynthesisUtterance('skip');
-        utterance.voice = voices[2];
-        window.speechSynthesis.speak(utterance);
+        //var voices = window.speechSynthesis.getVoices();
+        //var utterance = new SpeechSynthesisUtterance('skip');
+        //utterance.voice = voices[2];
+        //window.speechSynthesis.speak(utterance);
+        //
+        //
+        //voices = window.speechSynthesis.getVoices();
+        //$scope.currentStep += 1;
+        //utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
+        //utterance.voice = voices[2];
+        //window.speechSynthesis.speak(utterance);
 
 
-        voices = window.speechSynthesis.getVoices();
         $scope.currentStep += 1;
-        utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
-        utterance.voice = voices[2];
-        window.speechSynthesis.speak(utterance);
+        sayThings(['skip', steps[$scope.currentStep]]);
+      }
+
+
+      function sayThings(arrayOfThingsToSay) {
+        var flag = true;
+
+        window.speechSynthesis.onvoiceschanged = function() {
+          if (flag) {
+            var voices = window.speechSynthesis.getVoices();
+
+            for (var i = 0; i < arrayOfThingsToSay.length; i++) {
+              var utterance = new SpeechSynthesisUtterance(arrayOfThingsToSay[i]);
+              utterance.voice = voices[2];
+              window.speechSynthesis.speak(utterance);
+            }
+
+
+            flag = false;
+          }
+        }
       }
 
 }]);
