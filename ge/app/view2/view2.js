@@ -116,23 +116,30 @@ angular.module('myApp.view2', ['ngRoute'])
 
 
       function sayThings(arrayOfThingsToSay) {
-        var flag = true;
-        window.speechSynthesis.getVoices();
-
-        window.speechSynthesis.onvoiceschanged = function() {
-          if (flag) {
-            var voices = window.speechSynthesis.getVoices();
-
-            for (var i = 0; i < arrayOfThingsToSay.length; i++) {
-              var utterance = new SpeechSynthesisUtterance(arrayOfThingsToSay[i]);
-              utterance.voice = voices[2];
-              window.speechSynthesis.speak(utterance);
-            }
-
-
-            flag = false;
-          }
+        //var flag = true;
+        for (var i = 0; i < arrayOfThingsToSay.length; i++) {
+          var utterance = new SpeechSynthesisUtterance(arrayOfThingsToSay[i]);
+          utterance.voice = voices[2];
+          window.speechSynthesis.speak(utterance);
         }
+
+
+        //window.speechSynthesis.getVoices();
+
+        //window.speechSynthesis.onvoiceschanged = function() {
+        //  if (flag) {
+        //    var voices = window.speechSynthesis.getVoices();
+            //
+            //for (var i = 0; i < arrayOfThingsToSay.length; i++) {
+            //  var utterance = new SpeechSynthesisUtterance(arrayOfThingsToSay[i]);
+            //  utterance.voice = voices[2];
+            //  window.speechSynthesis.speak(utterance);
+            //}
+            //
+            //
+            //flag = false;
+          //}
+        //}
       }
 
 }]);
