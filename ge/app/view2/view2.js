@@ -28,6 +28,7 @@ angular.module('myApp.view2', ['ngRoute'])
 
         var voices = window.speechSynthesis.getVoices();
         var utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
+        $scope.currentStep += 1;
         utterance.voice = voices[2];
         window.speechSynthesis.speak(utterance);
 
@@ -44,7 +45,6 @@ angular.module('myApp.view2', ['ngRoute'])
 
   };
   setInterval(function() {
-    //console.log($window.shake);
     if ($window.shake) {
       var voices = window.speechSynthesis.getVoices();
       var utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
@@ -55,20 +55,6 @@ angular.module('myApp.view2', ['ngRoute'])
       $window.shake = false;
     }
   }, 100);
-
-  //$scope.$watch(function() {return $window.shake;}, function() {
-  //  alert('hello');
-  //  if ($window.shake) {
-  //    var voices = window.speechSynthesis.getVoices();
-  //    var utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
-  //    utterance.voice = voices[2];
-  //    window.speechSynthesis.speak(utterance);
-  //
-  //    $window.shake = false;
-  //
-  //  }
-  //});
-
 
 }]);
 
