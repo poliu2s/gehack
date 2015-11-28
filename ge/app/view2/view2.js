@@ -113,6 +113,7 @@ angular.module('myApp.view2', ['ngRoute'])
 
       function sayThings(arrayOfThingsToSay) {
         var flag = true;
+        window.speechSynthesis.getVoices();
 
         window.speechSynthesis.onvoiceschanged = function() {
           if (flag) {
