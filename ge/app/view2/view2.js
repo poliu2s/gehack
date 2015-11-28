@@ -63,6 +63,7 @@ angular.module('myApp.view2', ['ngRoute'])
       }
 
 
+      $window.shake = 0;
       times = 0;
     }
 
