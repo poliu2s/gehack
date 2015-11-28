@@ -27,14 +27,14 @@
 
     // start listening for the shake
     myShakeEvent.start();
-    window.shake = false;
+    window.shake = 0;
 
     // register a new event listener for the event
     window.addEventListener('shake', shakeEventDidOccur, false);
     function shakeEventDidOccur () {
 
         //put your own code here etc.
-        window.shake = true;
+        shake++;
     }
 </script>
 

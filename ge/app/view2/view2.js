@@ -32,7 +32,6 @@ angular.module('myApp.view2', ['ngRoute'])
         utterance.voice = voices[2];
         window.speechSynthesis.speak(utterance);
 
-
         //for (var i = 0; i < steps.length; i++) {
         //  var utterance = new SpeechSynthesisUtterance(steps[i]);
         //  utterance.voice = voices[2];
@@ -44,17 +43,64 @@ angular.module('myApp.view2', ['ngRoute'])
     };
 
   };
-  setInterval(function() {
-    if ($window.shake) {
-      var voices = window.speechSynthesis.getVoices();
-      var utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
-      $scope.currentStep += 1;
-      utterance.voice = voices[2];
-      window.speechSynthesis.speak(utterance);
 
-      $window.shake = false;
+  var times = 0;
+  setInterval(function() {
+    if (times <= 10) {
+      times++;
+    } else {
+
+      switch ($window.shake) {
+        case 0:
+              prompt();
+              break;
+        case 1:
+              skip();
+              break;
+        case 2:
+              repeat();
+              break;
+      }
+
+
+      times = 0;
     }
+
   }, 100);
+
+  function prompt() {
+    var voices = window.speechSynthesis.getVoices();
+    var utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
+    $scope.currentStep += 1;
+    utterance.voice = voices[2];
+    window.speechSynthesis.speak(utterance);
+  }
+
+      function repeat() {
+        var voices = window.speechSynthesis.getVoices();
+        var utterance = new SpeechSynthesisUtterance('repeat');
+        utterance.voice = voices[2];
+        window.speechSynthesis.speak(utterance);
+
+        voices = window.speechSynthesis.getVoices();
+        utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep - 1]);
+        utterance.voice = voices[2];
+        window.speechSynthesis.speak(utterance);
+      }
+
+      function skip() {
+        var voices = window.speechSynthesis.getVoices();
+        var utterance = new SpeechSynthesisUtterance('skip');
+        utterance.voice = voices[2];
+        window.speechSynthesis.speak(utterance);
+
+
+        voices = window.speechSynthesis.getVoices();
+        $scope.currentStep += 1;
+        utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
+        utterance.voice = voices[2];
+        window.speechSynthesis.speak(utterance);
+      }
 
 }]);
 
