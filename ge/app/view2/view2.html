@@ -1,0 +1,29 @@
+<script src="https://s3-ap-southeast-2.amazonaws.com/seglere.test/shake.js"></script>
+<script type="text/javascript">
+  // define a new shake event
+  var myShakeEvent = new Shake({
+    threshold: 15, // optional shake strength threshold
+    timeout: 1000 // optional, determines the frequency of event generation
+  });
+
+  // start listening for the shake
+  myShakeEvent.start();
+  window.shake = false;
+
+  // register a new event listener for the event
+  window.addEventListener('shake', shakeEventDidOccur, false);
+  function shakeEventDidOccur () {
+
+    //put your own code here etc.
+    window.shake = true;
+    console.log('here');
+  }
+</script>
+
+<div class="jumbotron">
+  <h1>Task: Change waterbottle filter</h1>
+  <i class="fa fa-headphones main-icon"></i>
+  <p class="lead">Put on your headphones and safety gear.</p>
+  <p><a class="btn btn-lg btn-danger" href="#/view2" role="button" ng-click="speech();">Ready</a></p>
+
+</div>
