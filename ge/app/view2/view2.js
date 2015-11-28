@@ -44,9 +44,7 @@ angular.module('myApp.view2', ['ngRoute'])
     };
 
   };
-
-  $scope.$watch(function() {return $window.shake;}, function() {
-    alert('hello');
+  setInterval(function() {
     if ($window.shake) {
       var voices = window.speechSynthesis.getVoices();
       var utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
@@ -54,9 +52,21 @@ angular.module('myApp.view2', ['ngRoute'])
       window.speechSynthesis.speak(utterance);
 
       $window.shake = false;
-
     }
-  });
+  }, 100);
+
+  //$scope.$watch(function() {return $window.shake;}, function() {
+  //  alert('hello');
+  //  if ($window.shake) {
+  //    var voices = window.speechSynthesis.getVoices();
+  //    var utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
+  //    utterance.voice = voices[2];
+  //    window.speechSynthesis.speak(utterance);
+  //
+  //    $window.shake = false;
+  //
+  //  }
+  //});
 
 
 }]);
