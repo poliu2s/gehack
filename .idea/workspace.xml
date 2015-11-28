@@ -56,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/ge/app/view2/view2.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.69604087">
-              <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
+              <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -686,12 +686,12 @@
       <created>1448684290052</created>
       <option name="number" value="Default" />
       <updated>1448684290052</updated>
-      <workItem from="1448684291689" duration="14585000" />
+      <workItem from="1448684291689" duration="14664000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14585000" />
+    <option name="totallyTimeSpent" value="14664000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="35" y="23" width="1405" height="877" extended-state="0" />
@@ -861,7 +861,7 @@
     <entry file="file://$PROJECT_DIR$/ge/app/view2/view2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.69604087">
-          <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
+          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
           <folding />
         </state>
       </provider>

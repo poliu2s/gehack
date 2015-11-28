@@ -48,6 +48,7 @@ angular.module('myApp.view2', ['ngRoute'])
     if ($window.shake) {
       var voices = window.speechSynthesis.getVoices();
       var utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
+      $scope.currentStep += 1;
       utterance.voice = voices[2];
       window.speechSynthesis.speak(utterance);
 
