@@ -46,8 +46,9 @@ angular.module('myApp.view2', ['ngRoute'])
 
   var times = 0;
   setInterval(function() {
-    if (times <= 10) {
+    if (times <= 50) {
       times++;
+
     } else {
 
       switch ($window.shake) {
