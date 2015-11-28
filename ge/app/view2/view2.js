@@ -10,10 +10,9 @@ angular.module('myApp.view2', ['ngRoute'])
 
 .controller('View2Ctrl', ['$scope', '$window', function($scope, $window) {
   $scope.currentStep = 0;
-
+  var steps = [];
 
   $scope.speech = function() {
-    var steps = [];
 
     steps[0] = 'Step One. Find a G.E. waterbottle.';
     steps[1] = 'Step Two. Pick up waterbottle.';
@@ -45,6 +44,7 @@ angular.module('myApp.view2', ['ngRoute'])
 
   };
   setInterval(function() {
+    //console.log($window.shake);
     if ($window.shake) {
       var voices = window.speechSynthesis.getVoices();
       var utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
