@@ -51,15 +51,19 @@ angular.module('myApp.view2', ['ngRoute'])
 
     } else {
 
+
       switch ($window.shake) {
         case 1:
+              console.log('prompt');
               prompt();
               break;
         case 2:
+            console.log('skip');
               skip();
               break;
         case 3:
               repeat();
+            console.log('repeat');
               break;
       }
 

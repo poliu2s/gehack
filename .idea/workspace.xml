@@ -75,8 +75,8 @@
       <file leaf-file-name="view2.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ge/app/view2/view2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57275134">
-              <caret line="121" column="42" selection-start-line="121" selection-start-column="42" selection-end-line="121" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.6626984">
+              <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -686,12 +686,12 @@
       <created>1448684290052</created>
       <option name="number" value="Default" />
       <updated>1448684290052</updated>
-      <workItem from="1448684291689" duration="18317000" />
+      <workItem from="1448684291689" duration="18399000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18317000" />
+    <option name="totallyTimeSpent" value="18399000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="35" y="23" width="1405" height="877" extended-state="0" />
@@ -860,8 +860,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ge/app/view2/view2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57275134">
-          <caret line="121" column="42" selection-start-line="121" selection-start-column="42" selection-end-line="121" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.6626984">
+          <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
           <folding />
         </state>
       </provider>
