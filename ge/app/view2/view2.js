@@ -45,7 +45,7 @@ angular.module('myApp.view2', ['ngRoute'])
 
   };
 
-  $scope.$watch('window.shake', function() {
+  $scope.$watch(function() {return window.shake;}, function() {
     alert('hello');
     if (window.shake) {
       var voices = window.speechSynthesis.getVoices();
