@@ -55,7 +55,7 @@ angular.module('myApp.view2', ['ngRoute'])
       switch ($window.shake) {
         case 1:
               console.log('prompt');
-              skip();
+              prompt();
               break;
         case 2:
             console.log('skip');
@@ -112,14 +112,17 @@ angular.module('myApp.view2', ['ngRoute'])
 
         $scope.currentStep += 1;
         sayThings(['skip', steps[$scope.currentStep]]);
+        $scope.currentStep += 1;
       }
 
 
       function sayThings(arrayOfThingsToSay) {
+        var voices = window.speechSynthesis.getVoices();
         //var flag = true;
         for (var i = 0; i < arrayOfThingsToSay.length; i++) {
           var utterance = new SpeechSynthesisUtterance(arrayOfThingsToSay[i]);
           utterance.voice = voices[2];
+          console.log('spoke');
           window.speechSynthesis.speak(utterance);
         }
 
