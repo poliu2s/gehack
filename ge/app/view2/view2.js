@@ -8,7 +8,7 @@ angular.module('myApp.view2', ['ngRoute'])
   });
 }])
 
-.controller('View2Ctrl', ['$scope', function($scope) {
+.controller('View2Ctrl', ['$scope', '$window', function($scope, $window) {
   $scope.currentStep = 0;
 
 
@@ -45,13 +45,15 @@ angular.module('myApp.view2', ['ngRoute'])
 
   };
 
-  $scope.$watch(function() {return window.shake;}, function() {
+  $scope.$watch(function() {return $window.shake;}, function() {
     alert('hello');
-    if (window.shake) {
+    if ($window.shake) {
       var voices = window.speechSynthesis.getVoices();
       var utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
       utterance.voice = voices[2];
       window.speechSynthesis.speak(utterance);
+
+      $window.shake = false;
 
     }
   });
