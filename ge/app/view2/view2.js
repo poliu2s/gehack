@@ -13,15 +13,18 @@ angular.module('myApp.view2', ['ngRoute'])
   $scope.hideReadyBtn = false;
   $scope.done = false;
   var steps = [];
+  var voices = undefined;
+  var utterance = undefined;
+
 
   $scope.speech = function() {
     $scope.hideReadyBtn = true;
 
     steps[0] = 'Step One. Find a G.E. waterbottle.';
     steps[1] = 'Step Two. Pick up waterbottle.';
-    steps[3] = 'Step Three. Open cap';
-    steps[4] = 'Step Four. Change filter';
-    steps[5] = 'You have completed the task. Good work.';
+    steps[2] = 'Step Three. Open cap';
+    steps[3] = 'Step Four. Change filter';
+    steps[4] = 'You have completed the task. Good work.';
 
     window.speechSynthesis.getVoices();
     var flag = true;
@@ -29,11 +32,8 @@ angular.module('myApp.view2', ['ngRoute'])
     window.speechSynthesis.onvoiceschanged = function() {
       if (flag) {
 
-        var voices = window.speechSynthesis.getVoices();
-        var utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
-        $scope.$apply(function() {
-          $scope.currentStep += 1;
-        });
+        voices = window.speechSynthesis.getVoices();
+        utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
         utterance.voice = voices[2];
         window.speechSynthesis.speak(utterance);
 
@@ -80,23 +80,23 @@ angular.module('myApp.view2', ['ngRoute'])
   }, 100);
 
   function prompt() {
-    var voices = window.speechSynthesis.getVoices();
-    var utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
 
     $scope.$apply(function() {
       $scope.currentStep += 1;
     });
+
+
+    utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
     utterance.voice = voices[2];
     window.speechSynthesis.speak(utterance);
 
-    console.log($scope.currentStep);
-    if ($scope.currentStep == 5) {
 
+
+    if ($scope.currentStep == 4) {
       $scope.$apply(function() {
         $scope.done = true;
       });
     }
-    console.log($scope.done);
 
   }
 

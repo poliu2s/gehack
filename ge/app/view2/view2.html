@@ -3,11 +3,12 @@
   <i class="fa fa-headphones main-icon"></i>
   <p class="lead">Put on your headphones and safety gear.</p>
   <p ng-hide="hideReadyBtn"><a class="btn btn-lg btn-danger" href="#/view2" role="button" ng-click="speech();">Ready</a></p>
-  <h3 ng-hide="!hideReadyBtn">You are currently on Step {{currentStep}}</h3>
+  <h3 ng-hide="!hideReadyBtn">You are currently on Step {{currentStep + 1}}</h3>
 </div>
 
 
 <div class="jumbotron" ng-hide="!done">
   <h1>You have completed the task.</h1>
   <i class="fa fa-check main-icon green"></i>
+  <h1>Good work.</h1>
 </div>
