@@ -46,7 +46,7 @@ angular.module('myApp.view2', ['ngRoute'])
 
   var times = 0;
   setInterval(function() {
-    if (times <= 50) {
+    if (times <= 5) {
       times++;
 
     } else {
@@ -57,14 +57,14 @@ angular.module('myApp.view2', ['ngRoute'])
               console.log('prompt');
               prompt();
               break;
-        case 2:
-            console.log('skip');
-              skip();
-              break;
-        case 3:
-              repeat();
-            console.log('repeat');
-              break;
+        //case 2:
+        //    console.log('skip');
+        //      skip();
+        //      break;
+        //case 3:
+        //      repeat();
+        //    console.log('repeat');
+        //      break;
       }
 
 
@@ -110,9 +110,8 @@ angular.module('myApp.view2', ['ngRoute'])
         //window.speechSynthesis.speak(utterance);
 
 
-        $scope.currentStep += 1;
-        sayThings(['skip', steps[$scope.currentStep]]);
-        $scope.currentStep += 1;
+        sayThings(['skip', steps[$scope.currentStep + 1]]);
+        $scope.currentStep += 2;
       }
 
 
