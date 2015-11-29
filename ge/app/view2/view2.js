@@ -10,9 +10,12 @@ angular.module('myApp.view2', ['ngRoute'])
 
 .controller('View2Ctrl', ['$scope', '$window', function($scope, $window) {
   $scope.currentStep = 0;
+  $scope.hideReadyBtn = false;
+  $scope.done = false;
   var steps = [];
 
   $scope.speech = function() {
+    $scope.hideReadyBtn = true;
 
     steps[0] = 'Step One. Find a G.E. waterbottle.';
     steps[1] = 'Step Two. Pick up waterbottle.';
@@ -77,9 +80,22 @@ angular.module('myApp.view2', ['ngRoute'])
   function prompt() {
     var voices = window.speechSynthesis.getVoices();
     var utterance = new SpeechSynthesisUtterance(steps[$scope.currentStep]);
-    $scope.currentStep += 1;
+
+    $scope.$apply(function() {
+      $scope.currentStep += 1;
+    });
     utterance.voice = voices[2];
     window.speechSynthesis.speak(utterance);
+
+    console.log($scope.currentStep);
+    if ($scope.currentStep == 5) {
+
+      $scope.$apply(function() {
+        $scope.done = true;
+      });
+    }
+    console.log($scope.done);
+
   }
 
       function repeat() {
